@@ -1,0 +1,28 @@
+{
+ "exe": "/path/to/build-sm89/strata-split-2-sm89",
+ "args": [
+  "--native", "/path/to/models/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+  "--mtp", "/path/to/strata-runtime/mtp/rt",
+  "--draft-vocab", "/path/to/Strata/data/draft_vocab_en.bin",
+  "--max-context", "262144",
+  "--spec", "6",
+  "--lookup", "15",
+  "--conversation-cache-mib", "4096",
+  "--batch", "1"
+ ],
+ "gpu": "0,1",
+ "env": {
+  "FNX_ARENA": "1",
+  "FNX_EXPERT_RAM_GIB": "20",
+  "FNX_POOL_MIN_RESIDENT": "384",
+  "FNX_PF_STAGE_ROWS": "8",
+  "CUDA_DEVICE_ORDER": "PCI_BUS_ID"
+ },
+ "lib_dirs": ["/path/to/build-sm89"],
+ "cwd": "/path/to/Strata",
+ "tokenizer": "/path/to/strata-runtime/packs/iq3_s/tokenizer",
+ "model_name": "flash-next-iq3s-split",
+ "drafting": "mtp",
+ "log": "/path/to/logs/svc-engine.log",
+ "host": "192.0.2.10"
+}

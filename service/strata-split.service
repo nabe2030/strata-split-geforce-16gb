@@ -1,0 +1,20 @@
+[Unit]
+Description=Strata all-cards split engine (Qwen3.8-Flash-Next IQ3_S, 256K context)
+After=network-online.target strata-lan-firewall.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=strata
+WorkingDirectory=/path/to/Strata
+Environment=CUDA_DEVICE_ORDER=PCI_BUS_ID
+# The engine pins about 80 GiB of host memory; the default memlock limit stops it at the embedding table.
+LimitMEMLOCK=infinity
+ExecStart=/path/to/venv/bin/python serve/server.py --engine strata --config /path/to/svc-cfg.json --port 8088
+Restart=on-failure
+RestartSec=30
+TimeoutStartSec=600
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target

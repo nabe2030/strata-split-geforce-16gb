@@ -1,0 +1,12 @@
+# Example only: accept the API port from the local network, drop it from everywhere else.
+# 192.0.2.0/24 and 192.0.2.10 are documentation addresses; replace with your subnet and host.
+# Load: sudo nft -f strata-lan.nft.example   (the "delete table" line errors harmlessly the first time; drop it if you prefer)
+table inet strata_lan
+delete table inet strata_lan
+table inet strata_lan {
+ chain input {
+  type filter hook input priority -10; policy accept;
+  ip daddr 192.0.2.10 ip saddr 192.0.2.0/24 tcp dport 8088 counter accept comment "split API, LAN only"
+  tcp dport 8088 counter drop comment "split API, deny everything else"
+ }
+}
