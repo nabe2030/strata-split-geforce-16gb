@@ -1,0 +1,75 @@
+{
+ "dataset": "sbintuitions/JamC-QA v1.0 test",
+ "n": 2309,
+ "correct": 1500,
+ "accuracy": 64.96,
+ "parse_fail": 0,
+ "finish_length": 0,
+ "empty_content": 0,
+ "reasoning_nonempty": 0,
+ "think_marker_in_content": 0,
+ "retried_questions": 0,
+ "pred_position_counts": [
+  486,
+  572,
+  652,
+  599
+ ],
+ "gold_position_counts": [
+  578,
+  574,
+  579,
+  578
+ ],
+ "by_category": {
+  "culture": {
+   "n": 640,
+   "correct": 422,
+   "accuracy": 65.94
+  },
+  "custom": {
+   "n": 200,
+   "correct": 143,
+   "accuracy": 71.5
+  },
+  "regional_identity": {
+   "n": 397,
+   "correct": 231,
+   "accuracy": 58.19
+  },
+  "geography": {
+   "n": 272,
+   "correct": 162,
+   "accuracy": 59.56
+  },
+  "history": {
+   "n": 343,
+   "correct": 251,
+   "accuracy": 73.18
+  },
+  "government": {
+   "n": 110,
+   "correct": 74,
+   "accuracy": 67.27
+  },
+  "law": {
+   "n": 299,
+   "correct": 181,
+   "accuracy": 60.54
+  },
+  "healthcare": {
+   "n": 48,
+   "correct": 36,
+   "accuracy": 75.0
+  }
+ },
+ "mean_latency_s": 2.28,
+ "extra_body": {
+  "chat_template_kwargs": {
+   "enable_thinking": false
+  }
+ },
+ "max_tokens": 8,
+ "num_shots": 3,
+ "model": "flash-next-iq3s-split2"
+}
